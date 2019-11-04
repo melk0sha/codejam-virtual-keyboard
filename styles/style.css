@@ -18,9 +18,10 @@
 textarea {
   margin-top: 40px;
   width: 800px;
-  height: 200px;
+  height: 260px;
   border: 3px solid #c089ff;
   outline: none;
+  resize: none;
 }
 
 .keyboard {
@@ -39,9 +40,9 @@ textarea {
   border: none;
   border-radius: 5px;
   background-color: #c089ff;
-  transition: border-radius 0.3s, background 0.2s;
+  transition: transform 0.3s, background 0.2s;
 }
-.keyboard .row .changeable > span:last-of-type {
+.keyboard .row .changeable > .up {
   display: none;
 }
 .keyboard .row .backspace, .keyboard .row .tab, .keyboard .row .enter {
@@ -78,7 +79,15 @@ textarea {
   background-color: #614381;
 }
 .keyboard .row .key-common:active {
-  border-radius: 50%;
+  transform: scale(1.2);
+  background-color: #614381;
+}
+.keyboard .row .active {
+  transform: scale(1.2);
+  background-color: #614381;
+}
+.keyboard .row .change-lang {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

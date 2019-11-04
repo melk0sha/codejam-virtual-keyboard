@@ -21,9 +21,10 @@ $keyboardSpecialColor: #9b75c5;
 textarea {
     margin-top: 40px;
     width: 800px;
-    height: 200px;
+    height: 260px;
     border: 3px solid $keyboardColor;
     outline: none;
+    resize: none;
 }
 
 .keyboard {
@@ -40,9 +41,9 @@ textarea {
             border: none;
             border-radius: 5px;
             background-color: $keyboardColor;
-            transition: border-radius .3s, background .2s;
+            transition: transform .3s, background .2s;
         }
-        .changeable > span:last-of-type { // change by shift??
+        .changeable > .up {
             display: none;
         }
         .backspace, .tab, .enter {
@@ -79,7 +80,15 @@ textarea {
             background-color: #614381;
         }
         .key-common:active {
-            border-radius: 50%;
+            transform: scale(1.2);
+            background-color: #614381;
+        }
+        .active {
+            transform: scale(1.2);
+            background-color: #614381;
+        }
+        .change-lang {
+            display: none;
         }
     }
 }

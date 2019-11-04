@@ -3,78 +3,78 @@ const buttonsEng = [
     {
         content: ['`', '~'],
         row: 0,
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         keyCode: 192
     },
     {
         content: ['1', '!'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 0,
         keyCode: 49
     },
     {
         content: ['2', '@'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 0,
         keyCode: 50
     },
     {
         content: ['3', '#'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 0,
         keyCode: 51
     },
     {
         content: ['4', '$'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 0,
         keyCode: 52
     },
     {
         content: ['5', '%'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 0,
         keyCode: 53
     },
     {
         content: ['6', '^'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 0,
         keyCode: 54
     },
     {
         content: ['7', '&'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 0,
         keyCode: 55
     },
     {
         content: ['8', '*'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 0,
         keyCode: 56
     },
     {
         content: ['9', '('],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 0,
         keyCode: 57
     },
     {
         content: ['0', ')'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 0,
         keyCode: 48
     },
     {
         content: ['-', '_'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 0,
         keyCode: 189
     },
     {
         content: ['=', '+'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 0,
         keyCode: 187
     },
@@ -152,19 +152,19 @@ const buttonsEng = [
     },
     {
         content: ['[', '{'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 1,
         keyCode: 219
     },
     {
         content: [']', '}'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 1,
         keyCode: 221
     },
     {
         content: ['\\', '|'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 1,
         keyCode: 220
     },
@@ -230,13 +230,13 @@ const buttonsEng = [
     },
     {
         content: [';', ':'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 2,
         keyCode: 186
     },
     {
         content: ['\'', '\"'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 2,
         keyCode: 222
     },
@@ -248,7 +248,7 @@ const buttonsEng = [
     },
     {
         content: ['Shift'],
-        classNames: ['key-common', 'shift'],
+        classNames: ['key-common', 'shift-left'],
         row: 3,
         keyCode: 16
     },
@@ -296,19 +296,19 @@ const buttonsEng = [
     },
     {
         content: [',', '<'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 3,
         keyCode: 188
     },
     {
         content: ['.', '>'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 3,
         keyCode: 190
     },
     {
         content: ['/', '?'],
-        classNames: ['key-common'],
+        classNames: ['key-common', 'changeable'],
         row: 3,
         keyCode: 191
     },
@@ -355,12 +355,6 @@ const buttonsEng = [
         keyCode: 18
     },
     {
-        content: ['Ctrl'],
-        classNames: ['key-common', 'ctrl-right'],
-        row: 4,
-        keyCode: 17
-    },
-    {
         content: ['←'],
         classNames: ['key-common', 'arrow-left'],
         row: 4,
@@ -377,6 +371,12 @@ const buttonsEng = [
         classNames: ['key-common', 'arrow-right'],
         row: 4,
         keyCode: 39
+    },
+    {
+        content: ['Ctrl'],
+        classNames: ['key-common', 'ctrl-right'],
+        row: 4,
+        keyCode: 17
     }
 ];
 

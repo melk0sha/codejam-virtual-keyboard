@@ -1,6 +1,4 @@
-let languageData = 'eng',
-    isShift = false,
-    isCapsLock = false;
+let languageData = 'eng';
 
 if (sessionStorage.getItem('language') == null) {
     sessionStorage.setItem('language', languageData);
@@ -8,55 +6,56 @@ if (sessionStorage.getItem('language') == null) {
     languageData = sessionStorage.getItem('language');
 }
 
-let container = document.createElement('div');
+const container = document.createElement('div');
 container.classList.add('container');
 document.body.appendChild(container);
 
-let textarea = document.createElement('textarea');
+const textarea = document.createElement('textarea');
 textarea.rows = '10';
 textarea.cols = '100';
 container.appendChild(textarea);
 
-let keyboard = document.createElement('div');
+const keyboard = document.createElement('div');
 keyboard.classList.add('keyboard');
 container.appendChild(keyboard);
 
-let row0 = document.createElement('div');
+const row0 = document.createElement('div');
 row0.classList.add('row');
 keyboard.appendChild(row0);
-let row1 = document.createElement('div');
+const row1 = document.createElement('div');
 row1.classList.add('row');
 keyboard.appendChild(row1);
-let row2 = document.createElement('div');
+const row2 = document.createElement('div');
 row2.classList.add('row');
 keyboard.appendChild(row2);
-let row3 = document.createElement('div');
+const row3 = document.createElement('div');
 row3.classList.add('row');
 keyboard.appendChild(row3);
-let row4 = document.createElement('div');
+const row4 = document.createElement('div');
 row4.classList.add('row');
 keyboard.appendChild(row4);
 
 textarea.autofocus = true;
 textarea.onblur = () => textarea.focus();
 
-buttonsEng.map(button => {
+// buttonsEng from data.js
+buttonsEng.forEach((button) => {
     const buttonElement = document.createElement('button');
     let counterSpans = 0;
-    button.content.map(spanContent => {
+    button.content.forEach((spanContent) => {
         const span = document.createElement('span');
         span.textContent = spanContent;
-        if (button.classNames.includes('changeable') && counterSpans == 0) {
+        if (button.classNames.includes('changeable') && counterSpans === 0) {
             span.classList.add('down');
-            counterSpans++;
-        } else if (button.classNames.includes('changeable') && counterSpans == 1) {
+            counterSpans += 1;
+        } else if (button.classNames.includes('changeable') && counterSpans === 1) {
             span.classList.add('up');
         }
         buttonElement.appendChild(span);
     });
-    button.classNames.forEach(classElementName => {
+    button.classNames.forEach((classElementName) => {
         buttonElement.classList.add(classElementName);
-        if (languageData == 'eng') {
+        if (languageData === 'eng') {
             buttonElement.classList.add('lang');
         } else {
             buttonElement.classList.add('change-lang');
@@ -64,41 +63,44 @@ buttonsEng.map(button => {
     });
     buttonElement.dataset.keyCode = button.keyCode;
     switch (button.row) {
-        case 0:
-            row0.appendChild(buttonElement);
-            break;
-        case 1:
-            row1.appendChild(buttonElement);
-            break;
-        case 2:
-            row2.appendChild(buttonElement);
-            break;
-        case 3:
-            row3.appendChild(buttonElement);
-            break;
-        case 4:
-            row4.appendChild(buttonElement);
-            break;
+    case 0:
+        row0.appendChild(buttonElement);
+        break;
+    case 1:
+        row1.appendChild(buttonElement);
+        break;
+    case 2:
+        row2.appendChild(buttonElement);
+        break;
+    case 3:
+        row3.appendChild(buttonElement);
+        break;
+    case 4:
+        row4.appendChild(buttonElement);
+        break;
+    default:
+        break;
     }
 });
 
-buttonsRus.map(button => {
+// buttonsRus from data.js
+buttonsRus.forEach((button) => {
     const buttonElement = document.createElement('button');
     let counterSpans = 0;
-    button.content.map(spanContent => {
+    button.content.forEach((spanContent) => {
         const span = document.createElement('span');
         span.textContent = spanContent;
-        if (button.classNames.includes('changeable') && counterSpans == 0) {
+        if (button.classNames.includes('changeable') && counterSpans === 0) {
             span.classList.add('down');
-            counterSpans++;
-        } else if (button.classNames.includes('changeable') && counterSpans == 1) {
+            counterSpans += 1;
+        } else if (button.classNames.includes('changeable') && counterSpans === 1) {
             span.classList.add('up');
         }
         buttonElement.appendChild(span);
     });
-    button.classNames.forEach(classElementName => {
+    button.classNames.forEach((classElementName) => {
         buttonElement.classList.add(classElementName);
-        if (languageData == 'rus') {
+        if (languageData === 'rus') {
             buttonElement.classList.add('lang');
         } else {
             buttonElement.classList.add('change-lang');
@@ -106,35 +108,37 @@ buttonsRus.map(button => {
     });
     buttonElement.dataset.keyCode = button.keyCode;
     switch (button.row) {
-        case 0:
-            row0.appendChild(buttonElement);
-            break;
-        case 1:
-            row1.appendChild(buttonElement);
-            break;
-        case 2:
-            row2.appendChild(buttonElement);
-            break;
-        case 3:
-            row3.appendChild(buttonElement);
-            break;
-        case 4:
-            row4.appendChild(buttonElement);
-            break;
+    case 0:
+        row0.appendChild(buttonElement);
+        break;
+    case 1:
+        row1.appendChild(buttonElement);
+        break;
+    case 2:
+        row2.appendChild(buttonElement);
+        break;
+    case 3:
+        row3.appendChild(buttonElement);
+        break;
+    case 4:
+        row4.appendChild(buttonElement);
+        break;
+    default:
+        break;
     }
 });
 
-keyboard.addEventListener('click', event => {
-    let currentButton = event.target;
-    if (currentButton.tagName == 'BUTTON') {
-        let spans = currentButton.children;
+keyboard.addEventListener('click', (event) => {
+    const currentButton = event.target;
+    if (currentButton.tagName === 'BUTTON') {
+        const spans = currentButton.children;
         if (currentButton.classList.contains('changeable')) {
-            let span = currentButton.querySelector('span.down');
+            const span = currentButton.querySelector('span.down');
             textarea.value += span.textContent;
         } else if (currentButton.classList.value.includes('arrow')) {
             textarea.value += spans[0].textContent;
         } else if (currentButton.classList.contains('tab')) {
-            textarea.value += '        ';
+            textarea.value += '\t';
         } else if (currentButton.classList.contains('space')) {
             textarea.value += spans[0].textContent;
         } else if (currentButton.classList.contains('backspace')) {
@@ -142,44 +146,43 @@ keyboard.addEventListener('click', event => {
         } else if (currentButton.classList.contains('enter')) {
             textarea.value += '\n';
         }
-    } else if (currentButton.tagName == 'SPAN' && currentButton.parentElement.classList.contains('changeable')) {
+    } else if (currentButton.tagName === 'SPAN' && currentButton.parentElement.classList.contains('changeable')) {
         textarea.value += currentButton.textContent;
-    } else if (currentButton.tagName == 'SPAN' && currentButton.parentElement.classList.value.includes('arrow')) {
+    } else if (currentButton.tagName === 'SPAN' && currentButton.parentElement.classList.value.includes('arrow')) {
         textarea.value += currentButton.textContent;
-    } else if (currentButton.tagName == 'SPAN' && currentButton.parentElement.classList.contains('tab')) {
-        textarea.value += '        ';
-    } else if (currentButton.tagName == 'SPAN' && currentButton.parentElement.classList.contains('space')) {
+    } else if (currentButton.tagName === 'SPAN' && currentButton.parentElement.classList.contains('tab')) {
+        textarea.value += '\t';
+    } else if (currentButton.tagName === 'SPAN' && currentButton.parentElement.classList.contains('space')) {
         textarea.value += currentButton.textContent;
-    } else if (currentButton.tagName == 'SPAN' && currentButton.parentElement.classList.contains('backspace')) {
+    } else if (currentButton.tagName === 'SPAN' && currentButton.parentElement.classList.contains('backspace')) {
         textarea.value = textarea.value.slice(0, -1);
-    } else if (currentButton.tagName == 'SPAN' && currentButton.parentElement.classList.contains('enter')) {
+    } else if (currentButton.tagName === 'SPAN' && currentButton.parentElement.classList.contains('enter')) {
         textarea.value += '\n';
     }
 });
 
-let pressed = new Set();
+const pressed = new Set();
 
-document.addEventListener('keydown', event => {
+document.addEventListener('keydown', (event) => {
     const rowElements = [...keyboard.children];
-    rowElements.forEach(rowElement => {
+    rowElements.forEach((rowElement) => {
         const buttonElements = [...rowElement.querySelectorAll('.lang')];
-        let buttonFound = buttonElements.find(button => event.keyCode == button.dataset.keyCode);
+        let buttonFound = buttonElements
+            .find((button) => event.keyCode === +button.dataset.keyCode);
         if (buttonFound) {
-            if (event.code == 'ShiftRight') {
-                buttonFound = buttonElements.find(button => button.classList.contains('shift-right'));
-            } else if (event.code == 'AltRight') {
-                buttonFound = buttonElements.find(button => button.classList.contains('alt-right'));
-            } else if (event.code == 'ControlRight') {
-                buttonFound = buttonElements.find(button => button.classList.contains('ctrl-right'));
+            if (event.code === 'ShiftRight') {
+                buttonFound = buttonElements.find((button) => button.classList.contains('shift-right'));
+            } else if (event.code === 'AltRight') {
+                buttonFound = buttonElements.find((button) => button.classList.contains('alt-right'));
+            } else if (event.code === 'ControlRight') {
+                buttonFound = buttonElements.find((button) => button.classList.contains('ctrl-right'));
             }
             buttonFound.classList.add('active');
-            if (buttonFound.dataset.keyCode == 16 || buttonFound.dataset.keyCode == 20) {
-                isShift = true;
-                isCapsLock = !isCapsLock;
-                const rowElements = [...keyboard.children];
-                rowElements.forEach(rowElement => {
-                    const buttonElements = [...rowElement.querySelectorAll('.lang')];
-                    buttonElements.forEach(buttonElement => {
+            if (buttonFound.dataset.keyCode === '16' || buttonFound.dataset.keyCode === '20') {
+                const rowElementsInside = [...keyboard.children];
+                rowElementsInside.forEach((rowElementInside) => {
+                    const buttonElementsInside = [...rowElementInside.querySelectorAll('.lang')];
+                    buttonElementsInside.forEach((buttonElement) => {
                         if (buttonElement.classList.contains('changeable')) {
                             const spans = [...buttonElement.children];
                             let temp = null;
@@ -194,12 +197,12 @@ document.addEventListener('keydown', event => {
             }
             if (buttonFound.classList.contains('changeable')) {
                 if (buttonFound.classList.contains('lang')) {
-                    let span = buttonFound.querySelector('span.down');
+                    const span = buttonFound.querySelector('span.down');
                     textarea.value += span.textContent;
                 }
             }
             if (buttonFound.classList.contains('tab')) {
-                textarea.value += '        ';
+                textarea.value += '\t';
             }
         }
     });
@@ -210,11 +213,11 @@ document.addEventListener('keydown', event => {
     }
     pressed.clear();
 
-    languageData = (languageData == 'rus') ? 'eng' : 'rus';
+    languageData = (languageData === 'rus') ? 'eng' : 'rus';
     sessionStorage.setItem('language', languageData);
-    rowElements.forEach(rowElement => {
+    rowElements.forEach((rowElement) => {
         const buttonElements = [...rowElement.children];
-        buttonElements.forEach(buttonElement => {
+        buttonElements.forEach((buttonElement) => {
             if (buttonElement.classList.contains('change-lang')) {
                 buttonElement.classList.remove('change-lang');
                 buttonElement.classList.add('lang');
@@ -226,26 +229,26 @@ document.addEventListener('keydown', event => {
     });
 });
 
-document.addEventListener('keyup', event => {
+document.addEventListener('keyup', (event) => {
     const rowElements = [...keyboard.children];
-    rowElements.forEach(rowElement => {
+    rowElements.forEach((rowElement) => {
         const buttonElements = [...rowElement.querySelectorAll('.lang')];
-        let buttonFound = buttonElements.find(button => event.keyCode == button.dataset.keyCode);
+        let buttonFound = buttonElements
+            .find((button) => event.keyCode === +button.dataset.keyCode);
         if (buttonFound) {
-            if (event.code == 'ShiftRight') {
-                buttonFound = buttonElements.find(button => button.classList.contains('shift-right'));
-            } else if (event.code == 'AltRight') {
-                buttonFound = buttonElements.find(button => button.classList.contains('alt-right'));
-            } else if (event.code == 'ControlRight') {
-                buttonFound = buttonElements.find(button => button.classList.contains('ctrl-right'));
+            if (event.code === 'ShiftRight') {
+                buttonFound = buttonElements.find((button) => button.classList.contains('shift-right'));
+            } else if (event.code === 'AltRight') {
+                buttonFound = buttonElements.find((button) => button.classList.contains('alt-right'));
+            } else if (event.code === 'ControlRight') {
+                buttonFound = buttonElements.find((button) => button.classList.contains('ctrl-right'));
             }
             buttonFound.classList.remove('active');
-            if (buttonFound.dataset.keyCode == 16) {
-                isShift = false;
-                const rowElements = [...keyboard.children];
-                rowElements.forEach(rowElement => {
-                    const buttonElements = [...rowElement.querySelectorAll('.lang')];
-                    buttonElements.forEach(buttonElement => {
+            if (buttonFound.dataset.keyCode === '16') {
+                const rowElementsInside = [...keyboard.children];
+                rowElementsInside.forEach((rowElementInside) => {
+                    const buttonElementsInside = [...rowElementInside.querySelectorAll('.lang')];
+                    buttonElementsInside.forEach((buttonElement) => {
                         if (buttonElement.classList.contains('changeable')) {
                             const spans = [...buttonElement.children];
                             let temp = null;
@@ -264,8 +267,9 @@ document.addEventListener('keyup', event => {
     pressed.delete(event.key);
 });
 
-textarea.onkeypress = event => {
-    if (!(event.keyCode == 32 || event.keyCode == 13)) {
+textarea.onkeypress = (event) => {
+    if (!(event.keyCode === 32 || event.keyCode === 13)) {
         return false;
     }
+    return true;
 };

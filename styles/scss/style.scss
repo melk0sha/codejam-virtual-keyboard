@@ -1,0 +1,98 @@
+$keyboardColor: #c089ff;
+$keyboardSpecialColor: #9b75c5;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+
+body {
+    background-color: #edddff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+textarea {
+    margin-top: 40px;
+    width: 800px;
+    height: 260px;
+    border: 3px solid $keyboardColor;
+    outline: none;
+    resize: none;
+}
+
+.keyboard {
+    margin-top: 10px;
+    .row {
+        margin-bottom: 6px;
+        white-space: pre-wrap;
+        .key-common {
+            width: 45px;
+            height: 45px;
+            margin: 0 3px;
+            outline: none;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: $keyboardColor;
+            transition: transform .3s, background .2s;
+        }
+        .changeable > .up {
+            display: none;
+        }
+        .backspace, .tab, .enter {
+            width: 90px;
+            background-color: $keyboardSpecialColor;
+        }
+        .capslock {
+            width: 96px;
+            background-color: $keyboardSpecialColor;
+        }
+        .shift-left {
+            width: 76px;
+            background-color: $keyboardSpecialColor;
+        }
+        .shift-right {
+            width: 110px;
+            background-color: $keyboardSpecialColor;
+        }
+        .ctrl-left {
+            width: 60px;
+            background-color: $keyboardSpecialColor;
+        }
+        .ctrl-right {
+            width: 59px;
+            background-color: $keyboardSpecialColor;
+        }
+        .space {
+            width: 316px;
+        }
+        .win, .alt-left, .alt-right, .arrow-up, .arrow-down, .arrow-left, .arrow-right {
+            background-color: $keyboardSpecialColor;
+        }
+        .key-common:hover {
+            background-color: #614381;
+        }
+        .key-common:active {
+            transform: scale(1.2);
+            background-color: #614381;
+        }
+        .active {
+            transform: scale(1.2);
+            background-color: #614381;
+        }
+        .change-lang {
+            display: none;
+        }
+    }
+}
